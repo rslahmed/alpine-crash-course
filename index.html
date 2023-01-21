@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"
+    ></script>
+
+    <style>
+      .bg-green {
+        background-color: green;
+      }
+
+      .bg-red {
+        background-color: red;
+      }
+
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- x-data, x-text -->
+    <!-- <div x-data="{message: 'Hi programmer'}">
+      <p x-text="message"></p>
+    </div> -->
+
+    <!-- x-html -->
+    <!-- <div x-data="{message: 'Hi <b>programmer</b> 2'}">
+      <p x-html="message"></p>
+    </div> -->
+
+    <!-- x-show -->
+    <!-- <div x-data="{message: 'Hi <b>programmer</b> 2', isShow: false}">
+      <p x-html="message" x-show="isShow"></p>
+    </div> -->
+
+    <!-- x-on -->
+    <!-- <div x-data="{message: 'Hi <b>programmer</b> 2', isShow: true}">
+      <button @mouseEnter="isShow=true" @mouseLeave="isShow=false">
+        Toggle
+      </button>
+      <p x-html="message" x-show="isShow"></p>
+    </div> -->
+
+    <!-- x-transition -->
+    <!-- <div x-data="{message: 'Hi <b>programmer</b> 2', isShow: true}">
+      <button @mouseEnter="isShow=true" @mouseLeave="isShow=false">
+        Toggle
+      </button>
+      <p x-html="message" x-show="isShow" x-transition></p>
+    </div> -->
+
+    <!-- function in x-data -->
+    <!-- <div
+      x-data="{
+        message: 'Hi <b>programmer</b> 2', 
+        isShow: true,
+        toggle(){
+           this.isShow = !this.isShow 
+        }
+    }"
+    >
+      <button @click="toggle">Toggle</button>
+      <p x-html="message" x-show="isShow" x-transition></p>
+    </div> -->
+
+    <!-- dataless x-data / x-init -->
+    <!-- <div x-data x-init="console.log('Alpine is ready')">
+      <p x-text="Date()"></p>
+    </div> -->
+
+    <!-- x-bind -->
+    <!-- <div x-data="{message: 'Hi <b>programmer</b> 2', isShow: true}">
+      <button
+        @click="isShow=!isShow"
+        :class="{'bg-green' : isShow, 'bg-red' : !isShow}"
+      >
+        Toggle
+      </button>
+      <p x-html="message" x-show="isShow" x-transition></p>
+    </div> -->
+
+    <!-- x-if -->
+    <!-- <div x-data="{isShow: false}">
+      <template x-if="isShow">
+        <p>Showing</p>
+      </template>
+      <template x-if="!isShow">
+        <p>Not showing</p>
+      </template>
+    </div> -->
+
+    <!-- x-for / loop -->
+    <!-- <div x-data="{users: ['Rasel', 'Fahim', 'Sujan']}">
+      <ul>
+        <template x-for="user in users">
+          <li x-text="user"></li>
+        </template>
+      </ul>
+    </div> -->
+
+    <!-- x-model -->
+    <!-- <div x-data="{message: 'Hi there', isSubscribed: false}">
+      <input type="text" x-model="message" />
+      <input type="checkbox" x-model="isSubscribed" />
+      <p x-text="message"></p>
+    </div> -->
+
+    <!-- x-teleport -->
+    <!-- <div x-data="{show: true}">
+      <p>Others content</p>
+      <template x-teleport="body">
+        <div x-show="show">Modal</div>
+      </template>
+    </div> -->
+
+    <!-- x-id -->
+    <!-- <div x-data="{users: ['Rasel', 'Fahim', 'Sujan']}">
+      <ul>
+        <template x-for="user in users">
+          <li x-text="user" :id="$id('user')"></li>
+        </template>
+      </ul>
+    </div> -->
+
+    <!-- x-effect -->
+    <!-- <div
+      x-data="{message: 'Hi there', isSubscribed: false}"
+      x-effect="console.log(isSubscribed)"
+    >
+      <input type="text" x-model="message" />
+      <input type="checkbox" x-model="isSubscribed" />
+      <p x-text="message"></p>
+    </div> -->
+
+    <!-- x-cloak -->
+    <!-- <div x-data="{messsage: 'false'}" x-ignore>
+      <p x-show="show" x-cloak>Message</p>
+    </div> -->
+
+    <!-- x-cloak -->
+    <!-- <div x-data="{messsage: 'Somehting'}">
+      <p x-text="messsage" x-ignore></p>
+    </div> -->
+
+    <!-- $el -->
+    <!-- <div x-data>
+      <button @click="$el.remove()">Click</button>
+    </div> -->
+
+    <!-- $refs -->
+    <!-- <div x-data>
+      <input type="text" x-ref="myInput" />
+      <button @click="$refs.myInput.focus()">focus</button>
+    </div> -->
+
+    <!-- $watch -->
+    <!-- <div
+      x-data="{message: 'My message'}"
+      x-init="$watch('message', (newValue, prevValue) => console.log('new value - ' + newValue, 'prev value - ' + prevValue))"
+    >
+      <input type="text" x-model="message" />
+    </div> -->
+
+    <!-- $dispatch -->
+    <!-- <div x-data @notify="alert($event.detail.message)">
+      <button @click="$dispatch('notify', {message: 'hi changes'})">
+        Click
+      </button>
+    </div> -->
+
+    <!-- $store -->
+    <!-- <div x-data="dropdown">
+      <button @click="toggle()">Toggle</button>
+      <p x-show="show">My Message</p>
+    </div> -->
+
+    <!-- Reuse data -->
+    <!-- <div x-data="dropdown">
+      <button @click="toggle()">Toggle 2</button>
+      <p x-show="show" x-text="another"></p>
+    </div> -->
+  </body>
+
+  <script>
+    document.addEventListener("alpine:init", () => {
+      Alpine.store("main", {
+        show: false,
+        toggle() {
+          this.show = !this.show;
+        },
+      });
+
+      Alpine.data("dropdown", () => ({
+        show: false,
+        another: "message here",
+        toggle() {
+          this.show = !this.show;
+        },
+      }));
+    });
+  </script>
+</html>
